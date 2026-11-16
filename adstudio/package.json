@@ -1,0 +1,20 @@
+{
+  "name": "adstudio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Product ad studio: analysis, creative images, video, ad copy and Facebook publishing",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.9.0",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "multer": "^2.5.0",
+    "zod": "^4.6.7"
+  }
+}

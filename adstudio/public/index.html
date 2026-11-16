@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AdStudio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">AdStudio <span>· استوديو الإعلانات</span></div>
+  <div id="keys" class="keys"></div>
+</header>
+
+<main>
+  <!-- STEP 1: input -->
+  <section class="card" id="inputCard">
+    <h2>1. دخل البرودوي ديالك</h2>
+    <form id="form">
+      <label>سمية البرودوي
+        <input name="name" placeholder="مثلا: Mini portable blender">
+      </label>
+      <label class="drop" id="drop">
+        <input type="file" name="image" accept="image/png,image/jpeg,image/webp" hidden>
+        <img id="preview" alt="" hidden>
+        <span id="dropText">📷 حط تصويرة البرودوي هنا (اختياري)</span>
+      </label>
+      <label>ملاحظات (الثمن ديال الشرا، البلاد، الجمهور...)
+        <textarea name="notes" rows="2" placeholder="مثلا: كنشريه ب 45 درهم، بغيت نبيع فالمغرب بالدفع عند الاستلام"></textarea>
+      </label>
+      <button class="primary" type="submit" id="analyzeBtn">🔍 حلل البرودوي</button>
+    </form>
+  </section>
+
+  <div id="results" hidden>
+    <!-- STEP 2: verdict -->
+    <section class="card verdict" id="verdictCard"></section>
+
+    <section class="grid2">
+      <div class="card" id="prosCons"></div>
+      <div class="card" id="audience"></div>
+    </section>
+
+    <section class="card" id="strategy"></section>
+
+    <!-- STEP 3: copy -->
+    <section class="card">
+      <h2>✍️ النصوص الإشهارية</h2>
+      <div id="copies" class="copies"></div>
+      <div id="hashtags" class="tags"></div>
+    </section>
+
+    <!-- STEP 4: images -->
+    <section class="card">
+      <h2>🖼️ تصاور كرياتيف</h2>
+      <p class="muted">كل prompt كيعطيك تصويرة إعلانية. يلا حطيتي تصويرة البرودوي، غادي نخدمو بيها باش يبان البرودوي الحقيقي.</p>
+      <div id="imagePrompts" class="prompts"></div>
+      <div id="gallery" class="gallery"></div>
+    </section>
+
+    <!-- STEP 5: video -->
+    <section class="card">
+      <h2>🎬 فيديو إعلاني</h2>
+      <div id="script" class="script"></div>
+      <label>Prompt ديال الفيديو
+        <textarea id="videoPrompt" rows="4" dir="ltr"></textarea>
+      </label>
+      <div class="row">
+        <select id="videoSeconds"><option value="4">4 ثواني</option><option value="8" selected>8 ثواني</option><option value="12">12 ثانية</option></select>
+        <button class="primary" id="videoBtn">🎬 صايب الفيديو</button>
+      </div>
+      <div id="videoStatus" class="muted"></div>
+      <div id="videoOut"></div>
+    </section>
+
+    <!-- STEP 6: publish -->
+    <section class="card" id="publishCard">
+      <h2>🚀 نشر فالباج ديال فيسبوك</h2>
+      <label>النص اللي غادي يتنشر
+        <textarea id="postText" rows="6"></textarea>
+      </label>
+      <p class="muted">اختار الميديا (كليكي على تصويرة ولا الفيديو اللفوق):</p>
+      <div id="selectedMedia" class="selected muted">ما ختاريتي حتى ميديا — غادي يتنشر غير النص.</div>
+      <button class="primary" id="publishBtn">📤 نشر دابا</button>
+      <div id="publishStatus"></div>
+    </section>
+  </div>
+</main>
+
+<div id="toast" class="toast" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>
